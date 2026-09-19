@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for abima ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #4a4a4a;
+            position: relative;
+            transition: background 1s ease;
+        }
+
+        body.blackpink-theme {
+            background: #0d0d0d !important;
+            color: #ff75a0 !important;
+        }
+
+        .heart-bg {
+            position: fixed;
+            top: -10vh;
+            font-size: 1.5rem;
+            color: rgba(255, 105, 180, 0.6);
+            animation: fall 5s linear infinite;
+            user-select: none;
+            z-index: 0;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px 25px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            z-index: 2;
+            border: 2px solid rgba(255, 192, 203, 0.5);
+            margin: 20px 0;
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.8s ease;
+        }
+
+        body.blackpink-theme .card {
+            background: rgba(20, 20, 20, 0.9);
+            border: 2px solid #ff2a74;
+            box-shadow: 0 0 25px rgba(255, 42, 116, 0.5);
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #ff4757;
+            font-size: 1.7rem;
+            margin-bottom: 12px;
+        }
+
+        body.blackpink-theme h1 {
+            color: #ff2a74;
+            text-shadow: 0 0 10px rgba(255, 42, 116, 0.7);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: #747d8c;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        body.blackpink-theme .subtitle {
+            color: #ffa8c5;
+        }
+
+        .message-box {
+            background: #fff0f3;
+            padding: 18px;
+            border-radius: 12px;
+            border-left: 4px solid #ff6b81;
+            margin-bottom: 15px;
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #57606f;
+        }
+
+        body.blackpink-theme .message-box {
+            background: #1a050d;
+            border-left: 4px solid #ff2a74;
+            color: #ffd1e1;
+        }
+
+        .lyrics-box {
+            background: #ffeaa7;
+            padding: 12px;
+            border-radius: 10px;
+            color: #d63031;
+            font-size: 0.88rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #ff6b81, #ff4757);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        body.blackpink-theme .btn {
+            background: linear-gradient(45deg, #ff2a74, #ff0055);
+            box-shadow: 0 0 15px rgba(255, 0, 85, 0.5);
+        }
+
+        .btn-secondary {
+            background: #dfe4ea;
+            color: #57606f;
+            box-shadow: none;
+        }
+
+        body.blackpink-theme .btn-secondary {
+            background: #333;
+            color: #ffa8c5;
+        }
+
+        .btn:hover {
+            transform: translateY(-2deg);
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #a4b0be;
+        }
+
+        #heartMatrix {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart-text {
+            position: absolute;
+            color: #ff2a74;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-shadow: 0 0 8px #ff0055;
+            animation: pulseGlow 1.5s infinite alternate;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes pulseGlow {
+            from { opacity: 0.4; transform: translate(-50%, -50%) scale(0.9); }
+            to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="heartMatrix"></div>
+
+    <div class="card">
+        <!-- SLIDE 1 -->
+        <div class="slide active" id="slide1">
+            <h1>haloo cowoku yang pintarr! ❤️</h1>
+            <p class="subtitle">I’m going to show you the voice of my heart, so listen to me!</p>
+            <div class="btn-group">
+                <button class="btn" onclick="nextSlide(2)">klik sayanggg ✨</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide" id="slide2">
+            <h1>thank u for... ✨</h1>
+            <div class="message-box">
+                "thank u atas segalanya, kehadiran kamu di hidup aku, effort kamu buat perjuangin & bahagia in aku. thank you for being the reason I stay alive."
+            </div>
+            <div class="lyrics-box">
+                Aku emang ribet kalau lagi ngambek sama hal-hal sederhana. Tapi sesederhana aku berucap “I love you”, alasannya ya karena itu kamu.
+
+Yap, alasan sederhananya cuma satu: karena itu kamu.
+
+Maaf ya kalau aku sering bikin kamu kesel, sering ngambek, atau mempermasalahkan hal-hal kecil. Tapi percayalah, aku nggak akan sengambek ini kalau aku nggak cinta sama kamu.
+
+Mungkin caraku mencintai kadang memang sedikit merepotkan, tapi semua itu karena kamu berarti banget buat aku. ❤️
+            </div>
+            <p class="subtitle">You are the reason I smile, so don't forget to smile too, okay?</p>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="nextSlide(1)">⬅️ Kembali</button>
+                <button class="btn" onclick="nextSlide(3)">next➡️</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide" id="slide3">
+            <h1>Cuma Mau Bilang... 💭</h1>
+            <div class="message-box">
+                "Jangan lupa jaga kesehatan!! jangan ikutan sakit kaya akuuu, kerjanya capek ya? capek banget pastinya kan. makasii ya udah bertahan kerja selama setahun inii, kamu kerenn bangettt, & makasii udah merhatiin cara bikin aku bahagia dengan hasil uang kerja kerasmu ya sayang!! Aku selalu bangga, bangggaaaaa bangetttt dan sayang banget sama kamu!" 💖
+            </div>
+            <p class="subtitle">Masih ada satu hal lagi di slide terakhir... 😉</p>
+            <div class="btn-group">
+                <button class="btn btn-secondary" onclick="nextSlide(2)">⬅️ Kembali</button>
+                <button class="btn" onclick="nextSlide(4)">terakhirr 💌</button>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="slide" id="slide4">
+            <h1>I Love You More Than My Self 🥰</h1>
+            <div class="message-box" style="background: #ffeaa7; border-color: #fdcb6e; color: #d63031;">
+                "hidup lebih lama dengan keadaan sehat yaa, Semoga kita bisa terus sama-sama dan bikin lebih banyak kenangan manis lagi ya! ❤️✨<br><br>
+                ...until we manage to realize our wishes one by one, including getting married, building a harmonious family, achieving success together, and having adorable children, hehehehehehe:)"
+            </div>
+            <div class="btn-group" style="flex-direction: column;">
+                <button class="btn" onclick="enableBlackpinkMode()" style="background: linear-gradient(45deg, #000, #ff2a74);">Lihat Kejutan Terakhir ✨</button>
+                <button class="btn btn-secondary" onclick="nextSlide(1)" style="margin-top: 5px;">🔄 Ulang dari Awal</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            from ur girlfriend butterflydta!
+        </div>
+    </div>
+
+    <script>
+        function nextSlide(slideNumber) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            document.getElementById('slide' + slideNumber).classList.add('active');
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-bg');
+            const icons = ['❤️', '💖', '🌸', '✨', '💕'];
+            heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s"; 
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 5000);
+        }
+        setInterval(createHeart, 300);
+
+        function enableBlackpinkMode() {
+            document.body.classList.add('blackpink-theme');
+            const matrix = document.getElementById('heartMatrix');
+            matrix.style.display = 'block';
+            matrix.innerHTML = ''; 
+
+            const points = 75; 
+            for (let i = 0; i < points; i++) {
+                const t = (i / points) * Math.PI * 2;
+                const x = 16 * Math.pow(Math.sin(t), 3);
+                const y = -(13 * Math.cos(t) - 5 * Math.cos(2*t) - 2 * Math.cos(3*t) - Math.cos(4*t));
+
+                const elem = document.createElement('div');
+                elem.className = 'heart-text';
+                elem.innerText = 'I LOVE YOU';
+
+                const posX = 50 + (x * 2.2); 
+                const posY = 48 + (y * 2.2); 
+
+                elem.style.left = posX + 'vw';
+                elem.style.top = posY + 'vh';
+                elem.style.animationDelay = (i * 0.03) + 's';
+
+                matrix.appendChild(elem);
+            }
+        }
+    </script>
+</body>
+</html>
